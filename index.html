@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tokyo Time México · Distribuidor mayorista de relojes</title>
+<meta name="description" content="Tokyo Time: distribuidor mayorista de relojes CASIO en el Centro de la Ciudad de México. Catálogo, existencias y pedidos desde nuestra app.">
+<link rel="icon" href="favicon.png"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><img src="logo.jpg" alt="Tokyo Time"><nav><a href="#contacto">Contacto</a><a href="privacidad.html">Aviso de privacidad</a></nav></div></header>
+<div class="hero"><div class="wrap">
+  <h1>Distribuidor mayorista de relojes en el Centro de la CDMX</h1>
+  <p>Relojes originales CASIO (Japón · México), G-SHOCK, BABY-G, EDIFICE y más. Precios de mayoreo, existencias al día y pedidos directos a Japón.</p>
+  <span class="badge">App Tokyo Time · próximamente en App Store y Google Play</span>
+</div></div>
+<section><div class="wrap">
+  <h2>Nuestra app</h2>
+  <div class="grid">
+    <div class="card"><b>Catálogo completo</b>Más de 2,400 modelos con foto, descripción y precio de menudeo y mayoreo.</div>
+    <div class="card"><b>Existencias al día</b>Consulta qué hay en bodega y arma tu pedido en minutos.</div>
+    <div class="card"><b>Pedidos por WhatsApp</b>Envía tu pedido y te confirmamos al momento.</div>
+    <div class="card"><b>Pedido especial Japón</b>Hoja mensual para clientes autorizados.</div>
+  </div>
+</div></section>
+<section id="contacto"><div class="wrap">
+  <h2>Contáctanos</h2>
+  <div class="grid">
+    <div class="card"><b>Dirección</b>Plaza Central de Mayoreo<br>Local 127, 1er Piso<br>C/Apartado 14, Centro<br>CDMX 06020, México</div>
+    <div class="card"><b>Correo</b><a class="contact-email" href="mailto:thani_d@yahoo.com">thani_d@yahoo.com</a></div>
+  </div>
+  <img class="front" src="fachada.jpg" alt="Fachada de Tokyo Time: CASIO Distribuidor Autorizado">
+</div></section>
+<footer><div class="wrap">© Tokyo Time México · <a href="privacidad.html">Aviso de privacidad / Privacy policy</a> · <a href="privacidad.html#eliminar">Eliminar mi cuenta / Delete my account</a></div></footer>
+<script>
+// The contact email is set in the app (Admin → Contacto de la tienda); this page shows the current one.
+fetch("https://rltupbgjkrehrkhoqexp.supabase.co/rest/v1/app_settings?select=value&key=eq.contact_email",
+  { headers: { apikey: "sb_publishable_wkzMUes6NonH6_0y9HIo1Q_FirlGFIR" } })
+  .then(function (r) { return r.json(); })
+  .then(function (rows) {
+    var email = rows && rows[0] && rows[0].value;
+    if (typeof email !== "string" || email.indexOf("@") < 1) return;
+    document.querySelectorAll(".contact-email").forEach(function (a) { a.textContent = email; a.href = "mailto:" + email; });
+  })
+  .catch(function () {});
+</script>
+</body></html>
